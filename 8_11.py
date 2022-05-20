@@ -6,6 +6,8 @@
 
 # *A proper divisor of a natural number is the divisor that is strictly less than the number.
 # For example, number 20 has 5 proper divisors: 1, 2, 4, 5, 10*
+import time
+
 
 def proper_divisors(n):
     div = []
@@ -23,14 +25,9 @@ def amicable_numbers(m, n):
         return False
 
 
-#DEN DOULEYEI
-
-#XREIAZETAI DIORTHWSH
-
-
 if __name__ == "__main__":
 
-
+    start_time = time.time()
     print("proper divisors of 220: ", proper_divisors(220))
     print("proper divisors of 284: ", proper_divisors(284))
 
@@ -54,3 +51,4 @@ if __name__ == "__main__":
 
 
     print(m, n)
+    print("--- %s seconds ---" % (time.time() - start_time))
