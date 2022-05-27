@@ -48,7 +48,7 @@ def isprime(num):
 
 
 
-# IMPORTANT NOTICE: The following program can accept integers with a maximum of 263, to avoid Result Overflowing
+# IMPORTANT NOTICE: The following program can accept integers with a maximum of 263, to avoid Result-Overflowing
 
 
 if __name__ == "__main__":
