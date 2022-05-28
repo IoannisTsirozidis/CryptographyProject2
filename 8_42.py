@@ -18,7 +18,6 @@ def sum_of_positive_divisors(m):
 
 
 
-
 if __name__ == "__main__":
 
     start = timer()
