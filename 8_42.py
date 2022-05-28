@@ -23,7 +23,7 @@ if __name__ == "__main__":
     start = timer()
     gama = 0.57721566490153286060651209008240243104
     e = math.e
-    limit = pow(10, 7)
+    limit = pow(10, 5)
     maxi = 0
     egama = pow(e, gama)
 
