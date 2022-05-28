@@ -2,7 +2,7 @@
 # https://github.com/NikolaiT
 # https://github.com/NikolaiT/Large-Primes-for-RSA/blob/master/generate_primes.py
 
-
+from timeit import default_timer as timer
 import random
 
 #INDEPENDENT
@@ -95,8 +95,9 @@ def generate_primes(n=512, k=1):
 
 
 if __name__ == '__main__':
-    n = 1024
 
+    start = timer()
+    n = 1024
     primes = generate_primes(n=n)
     print(primes[0])
     while not miller_rabin_primality_test(2*primes[0]+1,4):
@@ -110,5 +111,6 @@ if __name__ == '__main__':
     print("p: ", primes[0])
     print("q=2p+1: ", 2*primes[0]+1)
 
-
+    end = timer()
+    print("Time elapsed in sec: ", end - start)
 
