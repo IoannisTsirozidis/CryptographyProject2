@@ -34,6 +34,7 @@ if __name__ == "__main__":
     m = 221
     n = 284
 
+
     flag = 0
     for i in range(222, 2000):
         for j in range(284, 2000):
