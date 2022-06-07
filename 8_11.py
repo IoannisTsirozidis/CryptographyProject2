@@ -8,7 +8,6 @@
 # For example, number 20 has 5 proper divisors: 1, 2, 4, 5, 10*
 import time
 
-
 def proper_divisors(n):
     div = []
     for i in range(1, n):
