@@ -30,7 +30,6 @@ def isprime(n):
     return True
 
 
-
 # Driver code
 if __name__ == "__main__":
 
