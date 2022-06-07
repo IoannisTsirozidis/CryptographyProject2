@@ -72,7 +72,6 @@ if __name__ == "__main__":
     print("values from [2, p-2]: ", a_choices)
 
 
-
     random_a = random.choice(a_choices)
     flag = 0
     while flag == 0:
