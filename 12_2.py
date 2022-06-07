@@ -1,0 +1,136 @@
+# https://sagi.io/crypto-classics-wieners-rsa-attack/
+
+
+# https://github.com/drazioti/book_crypto/blob/master/public_key_crypto/7.2
+# https://gchq.github.io/CyberChef/
+
+#Qz1bNDc0MDYyNjMxOTI2OTM1MDksNTEwNjUxNzgyMDExNzIyMjMsMzAyNjA1NjUyMzUxMjg3MDQ
+# sODIzODU5NjMzMzQ0MDQyNjgNCjgxNjkxNTY2NjM5Mjc5MjksNDc0MDYyNjMxOTI2OTM1MDksM
+# Tc4Mjc1OTc3MzM2Njk2NDQyLDEzNDQzNDI5NTg5NDgwMzgwNg0KMTEyMTExNTcxODM1NTEyMzA
+# 3LDExOTM5MTE1MTc2MTA1MDg4MiwzMDI2MDU2NTIzNTEyODcwNCw4MjM4NTk2MzMzNDQwNDI2O
+# A0KMTM0NDM0Mjk1ODk0ODAzODA2LDQ3NDA2MjYzMTkyNjkzNTA5LDQ1ODE1MzIwOTcyNTYwMjA
+# yLDE3NDYzMjIyOTMxMjA0MTI0OA0KMzAyNjA1NjUyMzUxMjg3MDQsNDc0MDYyNjMxOTI2OTM1M
+# DksMTE5MzkxMTUxNzYxMDUwODgyLDU3MjA4MDc3NzY2NTg1MzA2DQoxMzQ0MzQyOTU4OTQ4MDM
+# 4MDYsNDc0MDYyNjMxOTI2OTM1MDksMTE5MzkxMTUxNzYxMDUwODgyLDQ3NDA2MjYzMTkyNjkzN
+# TA5DQoxMTIxMTE1NzE4MzU1MTIzMDcsNTI4ODI4NTEwMjYwNzI1MDcsMTE5MzkxMTUxNzYxMDU
+# wODgyLDU3MjA4MDc3NzY2NTg1MzA2DQoxMTkzOTExNTE3NjEwNTA4ODIsMTEyMTExNTcxODM1N
+# TEyMzA3LDgxNjkxNTY2NjM5Mjc5MjksMTM0NDM0Mjk1ODk0ODAzODA2DQo1NzIwODA3Nzc2NjU
+# 4NTMwNiw0NzQwNjI2MzE5MjY5MzUwOSwxODU1ODIxMDUyNzUwNTA5MzIsMTc0NjMyMjI5MzEyM
+# DQxMjQ4DQoxMzQ0MzQyOTU4OTQ4MDM4MDYsODIzODU5NjMzMzQ0MDQyNjgsMTcyNTY1Mzg2Mzk
+# zNDQzNjI0LDEwNjM1NjUwMTg5MzU0NjQwMQ0KODE2OTE1NjY2MzkyNzkyOSw0NzQwNjI2MzE5M
+# jY5MzUwOSwxMDM2MTA1OTcyMDYxMDgxNiwxMzQ0MzQyOTU4OTQ4MDM4MDYNCjExOTM5MTE1MTc
+# 2MTA1MDg4MiwxNzI1NjUzODYzOTM0NDM2MjQsNDc0MDYyNjMxOTI2OTM1MDksODE2OTE1NjY2M
+# zkyNzkyOQ0KNTI4ODI4NTEwMjYwNzI1MDcsMTE5MzkxMTUxNzYxMDUwODgyLDgxNjkxNTY2NjM
+# 5Mjc5MjksNDc0MDYyNjMxOTI2OTM1MDkNCjQ1ODE1MzIwOTcyNTYwMjAyLDE3NDYzMjIyOTMxM
+# jA0MTI0OCwzMDI2MDU2NTIzNTEyODcwNCw0NzQwNjI2MzE5MjY5MzUwOQ0KNTI4ODI4NTEwMjY
+# wNzI1MDcsMTE5MzkxMTUxNzYxMDUwODgyLDExMTUyMzQwODIxMjQ4MTg3OSwxMzQ0MzQyOTU4O
+# TQ4MDM4MDYNCjQ3NDA2MjYzMTkyNjkzNTA5LDExMjExMTU3MTgzNTUxMjMwNyw1Mjg4Mjg1MTA
+# yNjA3MjUwNywxMTkzOTExNTE3NjEwNTA4ODINCjU3MjA4MDc3NzY2NTg1MzA2LDExOTM5MTE1M
+# Tc2MTA1MDg4MiwxMTIxMTE1NzE4MzU1MTIzMDcsODE2OTE1NjY2MzkyNzkyOQ0KMTM0NDM0Mjk
+# 1ODk0ODAzODA2LDU3MjA4MDc3NzY2NTg1MzA2XQ==
+
+# BASE 64 Encoding, when Decrypted it generates the List C.
+
+
+
+def cf_expansion(n, d):
+    e = []
+    q = n // d
+    r = n % d
+    e.append(q)
+    while r != 0:
+        n, d = d, r
+        q = n // d
+        r = n % d
+        e.append(q)
+
+    return e
+
+
+
+def convergents(e):
+    n = []
+    d = []
+    for i in range(len(e)):
+        if i == 0:
+            ni = e[i]
+            di = 1
+
+        elif i == 1:
+            ni = e[i] * e[i - 1] + 1
+            di = e[i]
+
+        else:
+            ni = e[i] * n[i - 1] + n[i - 2]
+            di = e[i] * d[i - 1] + d[i - 2]
+
+        n.append(ni)
+        d.append(di)
+        yield (ni, di)
+
+
+
+# Formula:  (base^exponent)%modulus
+def modular_pow(base, exponent, modulus):
+
+    result = 1
+    while exponent > 0:
+        if exponent & 1:
+            result = (result * base) % modulus
+        exponent = exponent >> 1
+        base = (base * base) % modulus
+
+    return result
+
+
+if __name__ == "__main__":
+    C = [47406263192693509, 51065178201172223, 30260565235128704, 82385963334404268,
+         8169156663927929, 47406263192693509, 178275977336696442, 134434295894803806,
+         112111571835512307, 119391151761050882, 30260565235128704, 82385963334404268,
+         134434295894803806, 47406263192693509, 45815320972560202, 174632229312041248,
+         30260565235128704, 47406263192693509, 119391151761050882, 57208077766585306,
+         134434295894803806, 47406263192693509, 119391151761050882, 47406263192693509,
+         112111571835512307, 52882851026072507, 119391151761050882, 57208077766585306,
+         119391151761050882, 112111571835512307, 8169156663927929, 134434295894803806,
+         57208077766585306, 47406263192693509, 185582105275050932, 174632229312041248,
+         134434295894803806, 82385963334404268, 172565386393443624, 106356501893546401,
+         8169156663927929, 47406263192693509, 10361059720610816, 134434295894803806,
+         119391151761050882, 172565386393443624, 47406263192693509, 8169156663927929,
+         52882851026072507, 119391151761050882, 8169156663927929, 47406263192693509,
+         45815320972560202, 174632229312041248, 30260565235128704, 47406263192693509,
+         52882851026072507, 119391151761050882, 111523408212481879, 134434295894803806,
+         47406263192693509, 112111571835512307, 52882851026072507, 119391151761050882,
+         57208077766585306, 119391151761050882, 112111571835512307, 8169156663927929,
+         134434295894803806, 57208077766585306]
+
+    N = 194749497518847283
+    e = 50736902528669041
+    d = []
+
+    cf_expansion = cf_expansion(e, N)
+    convergents = list(convergents(cf_expansion))
+
+    for pk, pd in convergents:
+        if pk == 0:
+            continue
+
+        if pd % 2 != 0 and (e * pd - 1) % pk == 0:
+            d.append(pd)
+
+    d.remove(3)
+
+    for x in d:
+        string = ''
+
+        for i in C:
+            dec = modular_pow(i, x, N)
+            string += chr(dec)
+
+        print(string)
+
+
+    # String = "Just because you are a character doesn't mean that you have character"
+
+
+
+
