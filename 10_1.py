@@ -22,7 +22,6 @@ def trial_division_factorization(n):
     return factors
 
 
-
 def isprime(n):
     for i in range(2, math.ceil(n**0.5)):
         if n % i == 0:
