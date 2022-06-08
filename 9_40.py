@@ -70,5 +70,5 @@ if __name__ == "__main__":
     else:
         print("p is not prime, so p and q are not safe primes.")
 
-
-
+    end = timer()
+    print("Time elapsed in sec: ", end - start)
