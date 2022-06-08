@@ -90,20 +90,16 @@ if __name__ == "__main__":
 
     phi = (p - 1) * (q - 1)
 
-    for e in range(20):
-        d = mod_inv(e, phi)
-        if d is None:
-            continue
-        else:
-            print('e: ', e)
-            d = d % phi
-            s = ''
 
-            for i in C:
-                dec = mod_power(i, d, N)
-                s += chr(dec)
+    d = mod_inv(e, phi)
+    d = d % phi
+    s = ''
 
-            print(s)
+    for i in C:
+        dec = mod_power(i, d, N)
+        s += chr(dec)
+
+    print(s)
 
 
     # e: 1    ಃ΍ేᒇᓟಃ΍⛦ᒞᓟ⛦ᒞቂ΍⛦̘΍ဤే⛦ಃᓟ̘ేᅛ
