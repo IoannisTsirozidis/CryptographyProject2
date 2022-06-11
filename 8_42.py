@@ -1,5 +1,4 @@
 import math
-from gmpy2 import mpz
 from timeit import default_timer as timer
 
 
