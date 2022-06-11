@@ -1,9 +1,11 @@
-# https://sagi.io/crypto-classics-wieners-rsa-attack/
 
 
 # https://github.com/drazioti/book_crypto/blob/master/public_key_crypto/7.2
-# https://gchq.github.io/CyberChef/
 
+
+
+# https://gchq.github.io/CyberChef/
+# https://sagi.io/crypto-classics-wieners-rsa-attack/
 #Qz1bNDc0MDYyNjMxOTI2OTM1MDksNTEwNjUxNzgyMDExNzIyMjMsMzAyNjA1NjUyMzUxMjg3MDQ
 # sODIzODU5NjMzMzQ0MDQyNjgNCjgxNjkxNTY2NjM5Mjc5MjksNDc0MDYyNjMxOTI2OTM1MDksM
 # Tc4Mjc1OTc3MzM2Njk2NDQyLDEzNDQzNDI5NTg5NDgwMzgwNg0KMTEyMTExNTcxODM1NTEyMzA
@@ -69,8 +71,6 @@ def convergents(e):
         yield (ni, di)
 
 
-
-# Formula:  (base^exponent)%modulus
 def modular_pow(base, exponent, modulus):
 
     result = 1
